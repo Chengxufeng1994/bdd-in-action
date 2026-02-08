@@ -1,0 +1,470 @@
+[
+    {
+        "uri": "../features/interest/earning_interest.feature",
+        "id": "earning-interest",
+        "keyword": "Feature",
+        "name": "Earning Interest",
+        "description": "",
+        "line": 1,
+        "elements": [
+            {
+                "id": "earning-interest;earning-interest;;2",
+                "keyword": "Scenario Outline",
+                "name": "Earning interest",
+                "description": "",
+                "line": 11,
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Given ",
+                        "name": "Tess has a Current account with $10000",
+                        "line": 4,
+                        "match": {
+                            "location": "transfer_steps.go:31"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 25834
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "the interest rate for Current accounts is 1.0",
+                        "line": 5,
+                        "match": {
+                            "location": "interest_steps.go:29"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9333
+                        }
+                    },
+                    {
+                        "keyword": "When ",
+                        "name": "the monthly interest is calculated",
+                        "line": 6,
+                        "match": {
+                            "location": "interest_steps.go:33"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10208
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have earned $8.33",
+                        "line": 7,
+                        "match": {
+                            "location": "interest_steps.go:37"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 35459
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have $10008.33 in her Current account",
+                        "line": 8,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10333
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "earning-interest;earning-interest;;3",
+                "keyword": "Scenario Outline",
+                "name": "Earning interest",
+                "description": "",
+                "line": 12,
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Given ",
+                        "name": "Tess has a Savings account with $10000",
+                        "line": 4,
+                        "match": {
+                            "location": "transfer_steps.go:31"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 18625
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "the interest rate for Savings accounts is 3.0",
+                        "line": 5,
+                        "match": {
+                            "location": "interest_steps.go:29"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10333
+                        }
+                    },
+                    {
+                        "keyword": "When ",
+                        "name": "the monthly interest is calculated",
+                        "line": 6,
+                        "match": {
+                            "location": "interest_steps.go:33"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9292
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have earned $25",
+                        "line": 7,
+                        "match": {
+                            "location": "interest_steps.go:37"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9083
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have $10025 in her Savings account",
+                        "line": 8,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9750
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "earning-interest;earning-interest;;4",
+                "keyword": "Scenario Outline",
+                "name": "Earning interest",
+                "description": "",
+                "line": 13,
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Given ",
+                        "name": "Tess has a SuperSaver account with $10000",
+                        "line": 4,
+                        "match": {
+                            "location": "transfer_steps.go:31"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 19333
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "the interest rate for SuperSaver accounts is 5.0",
+                        "line": 5,
+                        "match": {
+                            "location": "interest_steps.go:29"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 8625
+                        }
+                    },
+                    {
+                        "keyword": "When ",
+                        "name": "the monthly interest is calculated",
+                        "line": 6,
+                        "match": {
+                            "location": "interest_steps.go:33"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 8750
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have earned $41.67",
+                        "line": 7,
+                        "match": {
+                            "location": "interest_steps.go:37"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9917
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have $10041.67 in her SuperSaver account",
+                        "line": 8,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10917
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "uri": "../features/transfers/transferring_between_accounts.feature",
+        "id": "transferring-money-between-accounts",
+        "keyword": "Feature",
+        "name": "Transferring money between accounts",
+        "description": "  In order to manage my money more efficiently\n  As a bank client\n  I want to transfer funds between my accounts whenever I need to",
+        "line": 1,
+        "elements": [
+            {
+                "id": "transferring-money-between-accounts;transferring-money-to-a-savings-account",
+                "keyword": "Scenario",
+                "name": "Transferring money to a savings account",
+                "description": "",
+                "line": 6,
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Given ",
+                        "name": "Tess has a Current account with $1000",
+                        "line": 7,
+                        "match": {
+                            "location": "transfer_steps.go:31"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 27833
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "a Savings account with $2000",
+                        "line": 8,
+                        "match": {
+                            "location": "transfer_steps.go:33"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 11500
+                        }
+                    },
+                    {
+                        "keyword": "When ",
+                        "name": "she transfers $500 from the Current account to the Savings account",
+                        "line": 9,
+                        "match": {
+                            "location": "transfer_steps.go:39"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 11625
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have $500 in her Current account",
+                        "line": 10,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 13750
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "she should have $2500 in her Savings account",
+                        "line": 11,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10417
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "transferring-money-between-accounts;transferring-with-insufficient-funds",
+                "keyword": "Scenario",
+                "name": "Transferring with insufficient funds",
+                "description": "",
+                "line": 13,
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Given ",
+                        "name": "Tess has a Current account with $1000",
+                        "line": 14,
+                        "match": {
+                            "location": "transfer_steps.go:31"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 19500
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "a Savings account with $2000",
+                        "line": 15,
+                        "match": {
+                            "location": "transfer_steps.go:33"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10583
+                        }
+                    },
+                    {
+                        "keyword": "When ",
+                        "name": "she transfers $1500 from the Current account to the Savings account",
+                        "line": 16,
+                        "match": {
+                            "location": "transfer_steps.go:39"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 11208
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should receive an 'insufficient funds' error",
+                        "line": 17,
+                        "match": {
+                            "location": "transfer_steps.go:45"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9542
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "she should have $1000 in her Current account",
+                        "line": 18,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10375
+                        }
+                    },
+                    {
+                        "keyword": "And ",
+                        "name": "she should have $2000 in her Savings account",
+                        "line": 19,
+                        "match": {
+                            "location": "transfer_steps.go:43"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 11042
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "transferring-money-between-accounts;transferring-money-between-accounts-within-the-bank",
+                "keyword": "Scenario",
+                "name": "Transferring money between accounts within the bank",
+                "description": "",
+                "line": 21,
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Given ",
+                        "name": "Tess has the following accounts:",
+                        "line": 22,
+                        "match": {
+                            "location": "transfer_steps.go:35"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 25083
+                        },
+                        "rows": [
+                            {
+                                "cells": [
+                                    "account",
+                                    "balance"
+                                ]
+                            },
+                            {
+                                "cells": [
+                                    "Current",
+                                    "1000"
+                                ]
+                            },
+                            {
+                                "cells": [
+                                    "Savings",
+                                    "2000"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "keyword": "When ",
+                        "name": "she transfers $500 from the Current account to the Savings account",
+                        "line": 26,
+                        "match": {
+                            "location": "transfer_steps.go:39"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 10709
+                        }
+                    },
+                    {
+                        "keyword": "Then ",
+                        "name": "her accounts should look like this:",
+                        "line": 27,
+                        "match": {
+                            "location": "transfer_steps.go:47"
+                        },
+                        "result": {
+                            "status": "passed",
+                            "duration": 9000
+                        },
+                        "rows": [
+                            {
+                                "cells": [
+                                    "account",
+                                    "balance"
+                                ]
+                            },
+                            {
+                                "cells": [
+                                    "Current",
+                                    "500"
+                                ]
+                            },
+                            {
+                                "cells": [
+                                    "Savings",
+                                    "2500"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
