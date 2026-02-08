@@ -280,6 +280,144 @@ Key adaptations for Go:
   - [Gherkin Reference](https://cucumber.io/docs/gherkin/reference/)
   - [BDD in Action Book](https://www.manning.com/books/bdd-in-action-second-edition)
 
+### BDD Workflow Skills
+
+This project includes custom Claude Code skills to streamline the BDD workflow:
+
+#### 1. **bdd-workflow-discovery** (發現階段)
+
+從功能需求到可執行規格的第一步：發現和定義。
+
+**用途：**
+- 撰寫使用者故事（User Stories）
+- 評估和拆分大故事（Story Splitting）
+- 進行 Example Mapping
+- 發現業務規則和測試範例
+
+**使用方式：**
+```bash
+/bdd-workflow-discovery "使用者能夠登入登出"
+```
+
+**輸出：**
+- `specs/[功能名稱]-discovery.md` - 包含：
+  - 原始使用者故事
+  - 拆分後的小故事（如果需要）
+  - Example Mapping 結果（規則、範例、待解決問題）
+
+**關鍵原則：**
+- ✅ **DFS（深度優先）** - 一次專注一個故事，完整探索後再繼續
+- ✅ **垂直切分** - 每個故事包含完整功能切片
+- ✅ **INVEST 原則** - Independent, Negotiable, Valuable, Estimable, Small, Testable
+
+#### 2. **bdd-workflow-formulation** (制定階段)
+
+將發現階段的輸出轉換成 Gherkin 可執行規格。
+
+**用途：**
+- 讀取 `specs/` 中的 discovery 文檔
+- 將 Example Mapping 結果轉換成 Gherkin 場景
+- 生成 Given-When-Then 步驟
+- 產生 `.feature` 文件
+
+**使用方式：**
+```bash
+/bdd-workflow-formulation specs/user-login-discovery.md
+```
+
+**輸出：**
+- `features/[功能名稱].feature` - Gherkin 場景文件
+
+**轉換規則：**
+- 業務規則 → `Rule` 或 `Scenario`
+- 範例 → `Given-When-Then` 步驟
+- 多個相似範例 → `Scenario Outline` + `Examples`
+- 待解決問題 → `# TODO` 註解或 `@pending` 標籤
+
+#### BDD 工作流程完整流程
+
+```
+┌─────────────────────────────────────────────────┐
+│ 1. Discovery（發現）- /bdd-workflow-discovery │
+├─────────────────────────────────────────────────┤
+│ • 撰寫使用者故事                                 │
+│ • 故事拆分（如果需要）                           │
+│ • Example Mapping                               │
+│ • 輸出: specs/[name]-discovery.md              │
+└─────────────────────────────────────────────────┘
+                     ↓
+┌──────────────────────────────────────────────────┐
+│ 2. Formulation（制定）- /bdd-workflow-formulation│
+├──────────────────────────────────────────────────┤
+│ • 讀取 discovery 文檔                            │
+│ • 轉換為 Gherkin 場景                            │
+│ • 輸出: features/[name].feature                 │
+└──────────────────────────────────────────────────┘
+                     ↓
+┌──────────────────────────────────────────────────┐
+│ 3. Automation（自動化）- 手動開發                │
+├──────────────────────────────────────────────────┤
+│ • 實現步驟定義（Step Definitions）               │
+│ • 運行 Godog 測試（Red）                        │
+│ • 實現業務邏輯（Green）                         │
+│ • 重構代碼（Refactor）                          │
+└──────────────────────────────────────────────────┘
+                     ↓
+┌──────────────────────────────────────────────────┐
+│ 4. Verification（驗證）                          │
+├──────────────────────────────────────────────────┤
+│ • 執行所有測試                                   │
+│ • 業務驗收                                      │
+│ • 持續交付                                      │
+└──────────────────────────────────────────────────┘
+```
+
+#### 目錄結構
+
+```
+項目根目錄/
+├── specs/                              # 規格說明（Discovery 輸出）
+│   ├── user-login-discovery.md        # 完整的發現文檔
+│   └── bank-transfer-discovery.md
+├── features/                           # Gherkin 場景（Formulation 輸出）
+│   ├── user-login.feature             # 可執行規格
+│   └── bank-transfer.feature
+└── tests/
+    └── acceptancetests/
+        ├── stepdefinitions/            # 步驟定義（手動實現）
+        │   ├── user_login_steps.go
+        │   └── bank_transfer_steps.go
+        └── ...
+```
+
+#### 使用範例
+
+**完整流程示範：**
+
+```bash
+# 步驟 1：發現階段
+/bdd-workflow-discovery "使用者能夠登入登出"
+# 互動式完成使用者故事和 Example Mapping
+# → 產生 specs/user-login-discovery.md
+
+# 步驟 2：制定階段
+/bdd-workflow-formulation specs/user-login-discovery.md
+# 自動轉換成 Gherkin 場景
+# → 產生 features/user-login.feature
+
+# 步驟 3：自動化階段（手動）
+# 1. 實現步驟定義
+# 2. 運行測試: make test
+# 3. 實現業務邏輯
+# 4. 重構
+```
+
+**注意事項：**
+- 這兩個 skills 只負責「發現」和「制定」階段
+- 「自動化」階段（實現步驟定義和業務邏輯）仍需手動完成
+- 遵循 Red-Green-Refactor 循環
+- 保持測試先行（Test-First）
+
 ### When to Ask for Help
 
 Claude should ask for clarification when:
