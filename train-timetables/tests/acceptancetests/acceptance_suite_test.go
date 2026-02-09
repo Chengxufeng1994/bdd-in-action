@@ -6,6 +6,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/Chegnxufeng1994/bdd-in-action/train-timetables/tests/acceptancetests/stepdefinitions"
 	"github.com/Chegnxufeng1994/bdd-in-action/train-timetables/tests/acceptancetests/testcontext"
 	"github.com/cucumber/godog"
 	"github.com/cucumber/godog/colors"
@@ -80,6 +81,8 @@ func InitializeScenario(sc *godog.ScenarioContext) {
 	testCtx := testcontext.NewTestContext()
 
 	// Register timetable step definitions
+	departingTrainsSteps := stepdefinitions.NewDepartingTrainsSteps(testCtx)
+	departingTrainsSteps.RegisterSteps(sc)
 
 	// Reset context before each scenario
 	sc.Before(func(ctx context.Context, scenario *godog.Scenario) (context.Context, error) {
