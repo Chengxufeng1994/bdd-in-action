@@ -1,4 +1,4 @@
-module github.com/Chegnxufeng1994/bdd-in-action/chapter02
+module github.com/Chegnxufeng1994/bdd-in-action/online-banking
 
 go 1.25.6
 

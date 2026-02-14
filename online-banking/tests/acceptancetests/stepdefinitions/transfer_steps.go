@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/actions"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/testcontext"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/actions"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/testcontext"
 	"github.com/cucumber/godog"
 )
 

@@ -1,11 +1,11 @@
-# Chapter 2: BDD with Godog
+# Online Banking Application with Godog
 
 This chapter demonstrates Behavior-Driven Development (BDD) using Godog and Gherkin for a banking application.
 
 ## Project Structure
 
 ```
-chapter02/
+online-banking/
 ├── banking/                    # Domain models
 │   ├── account_type.go        # Account type enum
 │   ├── bank_account.go        # Bank account entity
@@ -148,4 +148,4 @@ make all
 ## References
 
 - Based on "BDD in Action" (Second Edition) by John Ferguson Smart
-- Original Java implementation: https://github.com/bdd-in-action/second-edition/tree/master/chapter-02
+- Original Java implementation: https://github.com/bdd-in-action/second-edition/tree/master/online-banking

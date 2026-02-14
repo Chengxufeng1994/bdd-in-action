@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/stepdefinitions"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/testcontext"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/stepdefinitions"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/testcontext"
 	"github.com/cucumber/godog"
 	"github.com/cucumber/godog/colors"
 )

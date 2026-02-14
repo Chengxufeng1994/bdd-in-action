@@ -1,4 +1,4 @@
-# Chapter 2: BDD Banking Application - Complete Project Overview
+# Online Banking Application - Complete Project Overview
 
 Generated: 2026-02-08
 
@@ -16,7 +16,7 @@ Generated: 2026-02-08
 ## Project Structure
 
 ```
-chapter02/
+online-banking/
 ├── banking/                          # Domain layer
 │   ├── account_type.go
 │   ├── bank_account.go
@@ -287,7 +287,7 @@ func (t Transaction) Amount() float64 {
 ```go
 package testcontext
 
-import "github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
+import "github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
 
 type TestContext struct {
 	Client              *banking.Client
@@ -336,8 +336,8 @@ func (tc *TestContext) Reset() {
 package actions
 
 import (
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/testcontext"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/testcontext"
 )
 
 type TransferApi struct {
@@ -387,7 +387,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
 )
 
 func ParseAccountType(accountTypeStr string) (banking.AccountType, error) {
@@ -421,9 +421,9 @@ package stepdefinitions
 import (
 	"fmt"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/actions"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/testcontext"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/actions"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/testcontext"
 	"github.com/cucumber/godog"
 )
 
@@ -522,8 +522,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/actions"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/testcontext"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/actions"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/testcontext"
 	"github.com/cucumber/godog"
 )
 
@@ -588,8 +588,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/stepdefinitions"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/testcontext"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/stepdefinitions"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/testcontext"
 	"github.com/cucumber/godog"
 	"github.com/cucumber/godog/colors"
 )

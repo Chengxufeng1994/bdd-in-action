@@ -1,7 +1,7 @@
 package testcontext
 
 import (
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
 )
 
 // TestContext holds the test state during scenario execution

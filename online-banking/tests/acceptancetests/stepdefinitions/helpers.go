@@ -5,8 +5,8 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/actions"
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/tests/acceptancetests/domain"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/actions"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/tests/acceptancetests/domain"
 	"github.com/cucumber/godog"
 )
 

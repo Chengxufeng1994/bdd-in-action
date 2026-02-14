@@ -3,7 +3,7 @@ package actions
 import (
 	"fmt"
 
-	"github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
+	"github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
 )
 
 // ParseAccountType converts a string to AccountType

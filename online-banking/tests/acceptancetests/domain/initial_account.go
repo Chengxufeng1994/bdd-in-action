@@ -1,6 +1,6 @@
 package domain
 
-import "github.com/Chegnxufeng1994/bdd-in-action/chapter02/banking"
+import "github.com/Chegnxufeng1994/bdd-in-action/online-banking/banking"
 
 // InitialAccount represents an initial account configuration for testing
 type InitialAccount struct {
