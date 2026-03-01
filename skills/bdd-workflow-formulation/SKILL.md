@@ -203,7 +203,7 @@ Feature: 使用者登入
 
 否則：
   1. 使用 Glob 掃描 specs/*-discovery.md
-  2. 列出所有找到的文件
+  2. 列出所有找到的文件（顯示 feature 名稱和狀態）
   3. 讓用戶選擇要處理的文件
 ```
 
@@ -212,16 +212,21 @@ Feature: 使用者登入
 ```
 使用 Read 工具讀取文件內容
 
-解析結構：
-1. 提取 "## 原始使用者故事" 或 "## 使用者故事"
-2. 提取 "## 故事拆分結果" （如果有）
-   - 識別所有 Story X.X
-   - 記錄優先級和 MVP 範圍
-3. 提取 "## Example Mapping 結果"
-   - 對每個 Story：
-     - 提取業務規則（### 📏 業務規則）
-     - 提取範例（📝 **範例 X.X**）
-     - 提取問題（### ❓ 待解決問題）
+2.1 讀取頂部元數據區塊（<!-- discovery ... -->）：
+   - feature: 功能名稱（kebab-case）→ 推導輸出檔案名
+   - file: 來源文件路徑（確認）
+   - status: 確認為 complete
+
+2.2 從 feature 欄位推導輸出路徑：
+   output_file = "features/[feature].feature"
+
+2.3 解析正文結構：
+   - 提取 "## 功能描述"
+   - 提取每個 "### Story X.X：[名稱]"
+     - 使用者故事（As a / I want / So that）
+     - Acceptance Criteria
+     - Example Mapping 結果（業務規則、範例表格）
+     - 準備度評估（只處理 🟢 綠燈或 🟡 黃燈的故事）
 ```
 
 ### 步驟 3：選擇要生成的 Story（DFS 原則）
@@ -282,28 +287,43 @@ Feature: [功能名稱]
 -----------------
 mkdir -p features
 
-5.2 生成檔案名稱
-----------------
-從 discovery 檔案名移除 "-discovery" 後綴
-user-login-discovery.md → user-login.feature
+5.2 從元數據推導檔案名稱
+--------------------------
+從 discovery 文件頂部的 <!-- discovery ... --> 讀取 feature 欄位：
+  feature: account-management → features/account-management.feature
 
-5.3 儲存文件
-------------
+若無元數據，則從檔案名移除 "-discovery" 後綴：
+  account-management-discovery.md → account-management.feature
+
+5.3 儲存文件（含元數據區塊）
+------------------------------
 Write(
-  file_path: "features/[功能名稱].feature"
-  content: [Gherkin 內容]
+  file_path: "features/[feature].feature",
+  content:
+    # formulation 元數據（Gherkin 註解格式）
+    # formulation
+    # feature: [feature]
+    # source: specs/[feature]-discovery.md
+    # file: features/[feature].feature
+    # status: complete
+    #
+
+    Feature: ...
+    [Gherkin 內容]
 )
 
-5.4 向用戶確認
---------------
-✅ Feature 文件已儲存至：features/user-login.feature
-✅ 包含 X 個 Scenarios
-❓ 有 Y 個待解決問題（標記為 @pending）
+5.4 向用戶顯示完成摘要
+------------------------
+---
+✅ Formulation 完成！
 
-下一步：
-1. 檢視 Feature 文件
-2. 實現步驟定義（Step Definitions）
-3. 執行測試
+📄 文件位置：features/[feature].feature
+📊 Scenarios：X 個（含 Y 個 @pending）
+🔗 來源：specs/[feature]-discovery.md
+
+▶️ 下一步：實現步驟定義（Automation 階段）
+make test  ← 執行測試（預期 RED）
+---
 ```
 
 ---
@@ -474,6 +494,7 @@ Feature: 使用者登入登出
 
 ## 參考文檔
 
+- [Gherkin 編寫指南](./gherkin-guide.md) - **完整的 Gherkin 語法和最佳實踐指南**
 - [Gherkin 語法參考](https://cucumber.io/docs/gherkin/reference/)
 - [BDD 工作流程發現](../bdd-workflow-discovery/SKILL.md)
 - [Godog 文檔](https://github.com/cucumber/godog)

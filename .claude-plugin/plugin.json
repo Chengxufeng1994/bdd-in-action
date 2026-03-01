@@ -1,0 +1,8 @@
+{
+  "name": "bdd-in-action",
+  "description": "A plugin to assist with Behavior-Driven Development (BDD) practices, providing tools and resources for writing effective BDD scenarios and tests.",
+  "version": "1.0.0",
+  "author":  {
+    "name": "Benny Cheng"
+  }
+}
