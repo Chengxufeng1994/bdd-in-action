@@ -1,5 +1,5 @@
 ---
-name: bdd-workflow-formulation
+name: bdd-workflow:formulation
 description: |
   從 BDD 工作流程發現階段產生的使用者故事和 Example Mapping 結果，
   轉換成 Gherkin 格式的可執行規格（Given-When-Then 場景）。

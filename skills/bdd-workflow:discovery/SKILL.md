@@ -1,5 +1,5 @@
 ---
-name: bdd-workflow-discovery
+name: bdd-workflow:discovery
 description: |
   引導使用者透過 BDD 工作流程，從功能描述、故事拆分到 Example Mapping，
   協助撰寫使用者故事並發現業務規則和測試範例。
